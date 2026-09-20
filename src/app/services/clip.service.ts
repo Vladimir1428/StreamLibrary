@@ -102,7 +102,7 @@ export class ClipService {
       this.pageClips.set([
         ...this.pageClips(),
         {
-          docID: doc.id,
+          dcID: doc.id,
           uid: doc.get('uid'),
           displayName: doc.get('displayName'),
           title: doc.get('title'),
