@@ -63,6 +63,7 @@ export class ClipService {
 
     await deleteObject(fileRef);
 
+    const screenshotRef = ref(id.storage, `screenshots/${clip.screenshotFilename}`);
     const docRef = doc(this.#firestore, 'clips', clip.docID as string);
 
     await deleteDoc(docRef);
@@ -79,7 +80,6 @@ export class ClipService {
     if (this.pendingReq) return;
 
     this.pendingReq = true;
-
     const queryParams: QueryConstraint[] = [
       orderBy('timestamp', 'desc'),
       limit(6),
